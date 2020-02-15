@@ -1,0 +1,35 @@
+plugins {
+    id 'jacoco'
+    id 'java'
+    id 'com.github.ben-manes.versions' version '0.27.0'
+    id 'com.github.sherter.google-java-format' version '0.8'
+}
+
+group 'com.github.tomokinakamaru'
+
+version '0.1.0'
+
+sourceCompatibility = 1.8
+
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jacoco {
+    toolVersion = '0.8.4'
+}
+
+check {
+    dependsOn jacocoTestReport
+}
